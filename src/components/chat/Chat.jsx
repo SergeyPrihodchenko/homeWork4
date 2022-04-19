@@ -1,4 +1,4 @@
-import Input from './Input';
+
 import ChatList from './Chatlist';
 import { Outlet } from 'react-router-dom';
 
@@ -6,10 +6,9 @@ import { Outlet } from 'react-router-dom';
 export default function Chat(props) {
     return (
         <>
-        {props.data.chatsName.length !== 0 ? props.data.chatsName.map((elem) => {
+        {props.data.chatsName.length !== 0 ? Object.keys(props.data.chats).map((elem) => {
            return (<ChatList data={elem}/>)
         }) : null}
-        <Input/>
         <Outlet/>
         </>
     );

@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom';
 
 
 
+
 export default function BasicTabs() {
 
 
@@ -16,6 +17,7 @@ export default function BasicTabs() {
         <Tabs aria-label="basic tabs example">
           <Link to={'/'}><Tab label="Home"/></Link>
           <Link to={'/chat'}><Tab label="Chats"/></Link>
+          <Link to={'/profile'}><Tab label="Profile"/></Link>
         </Tabs>
       </Box>
     </Box>
