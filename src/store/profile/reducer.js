@@ -1,8 +1,9 @@
+
 import { TOGGLE_NAME } from "./actions"
 
 const initialState = {
-    showName: true,
-    name: 'Sergey'
+    background: 'black',
+    color: 'white'
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -10,7 +11,9 @@ const profileReducer = (state = initialState, action) => {
         case TOGGLE_NAME: 
         return {
             ...state,
-            showName: !state.showName
+            background: state.background === 'black' ? state.background = 'white' : state.background = 'black',
+            color: state.color === 'white' ? state.color = 'black' : state.color = 'white'
+
         };
         default:
             return state;
