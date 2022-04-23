@@ -16,7 +16,7 @@ function App(props) {
     <div className="App">
       <NavLinks/>
 
-      <Routers data={props.data}/>
+      <Routers/>
 
     </div>
   );

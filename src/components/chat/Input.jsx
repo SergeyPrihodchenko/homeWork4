@@ -2,20 +2,27 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { useSelector } from 'react-redux';
 
 
 export default function BasicTextFields(props) {
 
 const [value, setValue] = React.useState('');
+const {name} = useSelector(state => state.profile);
 
 const changValue = (event) => {
   setValue(event.target.value);
 }
 
+
 const callValue = () => {
   setValue('');
   if(value === '') return;
-  return {name: 'Sergo', message: value}
+  if(name === undefined) {
+   return {name: "you didn't enter user name", message: value} 
+  } else {
+   return {name: name, message: value}
+  }
 }
 
 const enterMessage = (event) => {
