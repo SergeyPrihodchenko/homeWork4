@@ -11,8 +11,8 @@ export default function Routers(props) {
         <Routes>
             <Route path="/" element={<HomePage/>}/>
             <Route path="/Profile" element={<Profile/>}/>
-                <Route path="/chat" element={<Chat data={props.data}/>}>
-                <Route path=':chatID' element={<Message data={props.data}/>} />
+                <Route path="/chat" element={<Chat/>}>
+                <Route path=':chatID' element={<Message/>} />
                 </Route>
         </Routes>
     )

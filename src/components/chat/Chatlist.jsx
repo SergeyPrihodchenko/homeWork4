@@ -14,13 +14,13 @@ export default function BasicList(props) {
     <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' , margin: '0 auto'}}>
       <nav aria-label="main mailbox folders">
         <List>
-            <Link to={`/chat/${props.data}`}>
+            <Link to={`/chat/${props.data.name}`}>
                 <ListItem disablePadding>
                 <ListItemButton>
                 <ListItemIcon>
                     <WorkIcon />
                 </ListItemIcon>
-                <ListItemText primary={props.data} />
+                <ListItemText primary={props.data.name} />
                 </ListItemButton>
             </ListItem>
             </Link>

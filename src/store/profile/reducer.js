@@ -1,20 +1,28 @@
 
-import { TOGGLE_NAME } from "./actions"
+import { SWAPPER_THEM, USER_NAME } from "./actions";
 
 const initialState = {
-    background: 'black',
-    color: 'white'
+    background: 'white',
+    color: 'black',
 };
 
+
+
 const profileReducer = (state = initialState, action) => {
+
     switch(action.type) {
-        case TOGGLE_NAME: 
+        case SWAPPER_THEM: 
         return {
             ...state,
-            background: state.background === 'black' ? state.background = 'white' : state.background = 'black',
-            color: state.color === 'white' ? state.color = 'black' : state.color = 'white'
-
+            background: state.background === 'white' ? 'black' : 'white',
+            color: state.color === 'black' ? 'white' : 'black', 
         };
+
+        case USER_NAME: 
+        return {
+            ...state,
+            name: action.payload
+        }
         default:
             return state;
     }
