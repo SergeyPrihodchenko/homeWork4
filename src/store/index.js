@@ -1,4 +1,5 @@
-import { combineReducers, createStore } from "redux";
+import { applyMiddleware, combineReducers, compose, createStore } from "redux";
+import middleware from "../middelwares/middlewaer";
 import chatReducer from "./cahts/reducer";
 import messagesReducer from "./messages/reducer";
 import profileReducer from "./profile/reducer";
@@ -8,7 +9,10 @@ const reducers = combineReducers({
     chat: chatReducer,
     messages: messagesReducer
 });
+
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || compose;
 const store = createStore(reducers,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+    composeEnhancer(applyMiddleware(middleware))
+    );
 
 export default store;
