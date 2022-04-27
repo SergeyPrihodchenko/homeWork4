@@ -5,7 +5,7 @@ import Input from './Input';
 
 import List from '@mui/material/List';
 import { useDispatch, useSelector } from 'react-redux';
-import { addMessages } from '../../store/messages/actions';
+import { addMessagesWithSaga } from '../../store/messages/actions';
 
 
 export default function PinnedSubheaderList() {
@@ -20,10 +20,10 @@ export default function PinnedSubheaderList() {
 
     const addMessage = (newMess) => {
       if(newMess() === undefined) return;
-      dispatch(addMessages(chatID, newMess()));
+      dispatch(addMessagesWithSaga(chatID, newMess()));
       setDummy({});
     }
-    console.log(messages);
+    
   return (
     <div className="" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '30px'}}>
         <List
