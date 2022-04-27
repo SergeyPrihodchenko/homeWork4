@@ -5,7 +5,7 @@ import {TextField, Button} from '@mui/material/';
 
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addChat } from '../../store/cahts/actions';
+import { addChat } from '../../store/chats/actions';
 
 
 
@@ -32,7 +32,7 @@ export default function Chat(props) {
         setDummy({})
         setValue('');
     }
-    console.log(chatList);
+
     return (
         <>
         <div className=""

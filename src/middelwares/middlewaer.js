@@ -1,11 +1,18 @@
-const middleware =  (store) => (next) => (action) => {
-    console.log('we in middleware');
+import { ADD_MESSAGE, addMessages } from "../store/messages/actions";
 
-    setTimeout(() => {
-        console.log('I middleware');
-        console.log('ACTION:', action);
-    },
-    1500)
+const middleware =  (store) => (next) => (action) => {
+    
+    if(action.type === ADD_MESSAGE && action.payload.message.name !== 'BOT') {
+
+        const newMessage = {
+            message: 'Hello , My name BOT',
+            name: 'BOT'
+        }
+        setTimeout(() => {
+            store.dispatch(addMessages(action.payload.chatID, newMessage))
+        }, 1500)
+    }
+    next(action);
 };
 
 export default middleware;
