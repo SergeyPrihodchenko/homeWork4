@@ -5,14 +5,14 @@ import Input from './Input';
 
 import List from '@mui/material/List';
 import { useDispatch, useSelector } from 'react-redux';
-import { addMessagesWithSaga } from '../../store/messages/actions';
+import { addMessages } from '../../store/messages/actions';
 
 
 export default function PinnedSubheaderList() {
   
   const {chatID} = useParams();
   const messages = useSelector(state => state.messages.messageList);
-
+  console.log(messages);
 
   const dispatch = useDispatch();
   const [, setDummy] = React.useState('');
@@ -20,7 +20,7 @@ export default function PinnedSubheaderList() {
 
     const addMessage = (newMess) => {
       if(newMess() === undefined) return;
-      dispatch(addMessagesWithSaga(chatID, newMess()));
+      dispatch(addMessages(chatID, newMess()));
       setDummy({});
     }
     
