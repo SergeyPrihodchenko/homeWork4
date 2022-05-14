@@ -19,6 +19,8 @@ export default function BasicTabs() {
           <Link to={'/chat'}><Tab label="Chats"/></Link>
           <Link to={'/profile'}><Tab label="Profile"/></Link>
           <Link to={'/gists'}><Tab label="Gists"/></Link>
+          <Link to={'/login'}><Tab label="Login"/></Link>
+          <Link to={'/registration'}><Tab label="Registration"/></Link>
         </Tabs>
       </Box>
     </Box>
