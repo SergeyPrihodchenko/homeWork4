@@ -3,6 +3,7 @@ import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { useState } from "react"
 import { Link } from "react-router-dom";
 import firebaseConfig from "../services/firebaseConfig";
+import {ToastContainer, toast} from 'react-toastify';
 
 export default function Registration() {
 
@@ -21,14 +22,19 @@ export default function Registration() {
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
-            const auth = getAuth(firebaseConfig);
+            let auth = getAuth(firebaseConfig);
             await createUserWithEmailAndPassword(auth, email, password);
+            setEmail('');
+            setPassword('');
+            toast.success('Вы зарегистрировались!');
         } catch(e) {
             console.log(e);
+            toast.error('Ошибка при регистрации');
         }
     }
     return (
         <>
+        <ToastContainer/>
         <h3
         style={{
             paddingLeft: '20px'
@@ -70,6 +76,7 @@ export default function Registration() {
         >Sign up</Button>
         <p style={{paddingLeft: '20px'}}>Already registered ? <Link to="/login" style={{color: 'blue'}}>Sign in</Link></p>
         </form>
+        <p>{error}</p>
         </>
     )
 }

@@ -6,12 +6,13 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store,  persistor } from './store';
 import { PersistGate } from 'redux-persist/integration/react';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 ReactDOM.render(
   <BrowserRouter>
-      <React.StrictMode> 
-      <Provider store={store}>
+      <React.StrictMode>
+      <Provider store={store} >
       <PersistGate persistor={persistor}>
       <App/>
       </PersistGate>

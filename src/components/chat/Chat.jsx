@@ -1,11 +1,12 @@
 
 import ChatList from './Chatlist';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import {TextField, Button} from '@mui/material/';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addChat } from '../../store/chats/actions';
+import { addChatWithFB, initTrackerWithFB } from '../../middelwares/middlewaer';
 
 
 
@@ -16,6 +17,7 @@ export default function Chat(props) {
     const dispatch = useDispatch();
     const chatList = useSelector(state => state.chat.chatList);
     const [, setDummy] = useState();
+    const {chatID} = useParams();
 
     const changValue = (e) => {
     setValue(e.target.value);
@@ -28,10 +30,15 @@ export default function Chat(props) {
     }
 
     const chatName = () => {
-        dispatch(addChat(value));
+        dispatch(addChatWithFB(value));
         setDummy({})
         setValue('');
     }
+
+    useEffect(() => {
+        dispatch(initTrackerWithFB());
+    },
+    [chatID])
 
     return (
         <>

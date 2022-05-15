@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import firebaseConfig from '../services/firebaseConfig';
+import firebaseConfigHooc from '../services/firebaseConfig';
 import {
     getAuth, 
     onAuthStateChanged, 
@@ -13,7 +13,7 @@ export function AuthProvider({children}) {
     const [user, setUser] = useState();
 
     let signin = async(newUser, callBack) => {
-        const auth = getAuth(firebaseConfig);
+        const auth = getAuth(firebaseConfigHooc);
 
         await signInWithEmailAndPassword(auth, newUser.email, newUser.password);
         await onAuthStateChanged(auth, (user) => {
@@ -25,7 +25,7 @@ export function AuthProvider({children}) {
     };
 
     let signout = async (callback) => {
-        const auth = getAuth(firebaseConfig);
+        const auth = getAuth(firebaseConfigHooc);
         await signOut(auth);
         setUser(null);
         callback();

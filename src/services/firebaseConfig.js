@@ -10,6 +10,6 @@ const firebaseConfig = {
     appId: "1:62569350173:web:38000e81d2576676b032f4"
   };
 
-  const app = initializeApp(firebaseConfig);
+  const firebaseConfigHooc = initializeApp(firebaseConfig);
 
-  export default firebaseConfig;
+  export default firebaseConfigHooc;
