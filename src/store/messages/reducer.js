@@ -1,4 +1,4 @@
-import { ADD_MESSAGE } from "./actions";
+import { ADD_MESSAGE, UPDATE_MESSAGES } from "./actions";
 
 const inintialState = {
     messageList: []
@@ -25,6 +25,16 @@ const messagesReducer = (state = inintialState, action) => {
                 ]
             }
 
+            }
+
+            case UPDATE_MESSAGES: 
+            console.log(action);
+            return {
+                ...state,
+                messageList: {
+                    ...state.messageList,
+                    [action.chatId]: action.message
+                }
             }
     
         default:

@@ -4,9 +4,6 @@ import Routers from './components/Routers';
 import React from 'react';
 
 
-
-
-
 function App(props) {
 
 
@@ -15,9 +12,7 @@ function App(props) {
   return (
     <div className="App">
       <NavLinks/>
-
       <Routers/>
-
     </div>
   );
 }
