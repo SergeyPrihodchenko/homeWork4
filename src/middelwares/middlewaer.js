@@ -5,7 +5,6 @@ import { chatListUpdate } from "../store/chats/actions";
 const middleware =  (store) => (next) => (action) => {
     
     if(action.type === ADD_MESSAGE && action.payload.message.name !== 'BOT') {
-        console.log(action);
         const newMessage = {
             message: 'Hello , My name BOT',
             name: 'BOT'
@@ -63,9 +62,8 @@ export const addMessageWithFB = (chatId, message) => async () => {
 
 export const getMessgagesByChatIdWithFB = (chatId) => async (dispatch) => {
     const db = getDatabase(firebaseConfigHooc);
-    const msgRef = ref(db, `messgae/${chatId}`);
-    onValue(msgRef, (snapshot) => { // не отробатывает изменение 
-        console.log(1);
+    const msgRef = ref(db, `messages/${chatId}`);
+    onValue(msgRef, (snapshot) => { 
         const data = snapshot.val();
         const msg = data && Object.values(data);
         if(msg?.length > 0) {

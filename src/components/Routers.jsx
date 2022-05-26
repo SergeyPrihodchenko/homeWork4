@@ -6,8 +6,8 @@ import Profile from './Profile';
 import Gists from "./Gists";
 import Registration from "./Registration";
 import Login from "./Login";
-import RequireAuth from "../hocs/RequierAuth";
-import {AuthProvider} from '../hooks/AuchProvider';
+import RequireAuth from "../hocs/RequireAuth";
+import {AuthProvider} from '../hooks/AuthProvider';
 
 export default function Routers(props) {
 

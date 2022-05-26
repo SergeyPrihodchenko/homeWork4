@@ -33,7 +33,7 @@ const messagesReducer = (state = inintialState, action) => {
                 ...state,
                 messageList: {
                     ...state.messageList,
-                    [action.chatId]: action.message
+                    [action.payload.chatId]: action.payload.message
                 }
             }
     

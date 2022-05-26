@@ -26,7 +26,7 @@ export default function PinnedSubheaderList() {
     React.useEffect(() => {
       dispatch(getMessgagesByChatIdWithFB(chatID));
     },[chatID]);
-    
+
   return (
     <div className="" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '30px'}}>
         <List
@@ -41,7 +41,7 @@ export default function PinnedSubheaderList() {
       }}
       subheader={<li />}
     >
-      {messages[chatID]?.map((el, ind) => (
+      {messages[undefined]?.map((el, ind) => (
         <li key={ind}>
             {<MessageTemplate data={el}/>}
         </li>

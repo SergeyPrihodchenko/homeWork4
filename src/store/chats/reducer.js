@@ -1,7 +1,7 @@
 
 import { ADD_CHAT, CHATS_UPDATE } from "./actions";
 
-const initialState = {
+export const initialState = {
     chatList: []
 };
 

@@ -2,7 +2,7 @@ import { Button, TextField } from "@mui/material";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-import useAuth from "../hooks/AuchProvider";
+import useAuth from "../hooks/AuthProvider";
 
 export default function Login() {
 
